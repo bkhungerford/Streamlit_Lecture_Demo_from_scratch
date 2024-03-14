@@ -69,6 +69,7 @@ st.subheader('Evaluate the model or make a prediction to the left.')
 
 #model = load_model_ml(FPATHS['models'][model_name])
 model = load_model_ml(FPATHS['models']['random_forest'])
+joblib.load(../rf_pipe.joblib)
 # Evaluate model subheader and button
 st.sidebar.subheader('Evaluation')
 
