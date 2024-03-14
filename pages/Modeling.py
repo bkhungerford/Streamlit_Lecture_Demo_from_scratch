@@ -13,7 +13,7 @@ with open('config/filepaths.json', 'r') as f:
     FPATHS = json.load(f)
 
 # Define function for laoding data with caching
-#@st.cache_data
+@st.cache_data
 def load_Xy_data(fpath):
     return joblib.load(fpath)
 
@@ -25,7 +25,7 @@ X_test, y_test = load_Xy_data(fpath = FPATHS['data']['ml']['test'])
 
 
 # Define function for loading models with caching
-#@st.cache_resource
+@st.cache_resource
 def load_model_ml(fpath):
     return joblib.load(fpath)
 
@@ -36,7 +36,7 @@ def load_model_ml(fpath):
 # rf = load_model_ml(fpath = FPATHS['models']['random_forest'])
 
 # Define function for getting the model explainer with caching
-#@st.cache_resource
+@st.cache_resource
 def get_explainer(_model_pipe, X_train, labels):
     X_train_sc = _model_pipe[0].transform(X_train)
     feature_names = _model_pipe[0].get_feature_names_out()
@@ -51,7 +51,7 @@ def get_explainer(_model_pipe, X_train, labels):
 
 
 
-#@st.cache_resource
+@st.cache_resource
 def explain_instance(_explainer, _model_pipe, instance_to_explain):
     instance_to_explain_sc = _model_pipe[0].transform(instance_to_explain)
     explanation = _explainer.explain_instance(instance_to_explain_sc[0],
