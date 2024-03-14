@@ -78,7 +78,7 @@ labels = ['Approved', 'Rejected']
 
 # When button is pressed
 if st.sidebar.button('Evaluate Model'):
-    t.subheader(f'Evaluation of {model_name}')
+    st.subheader(f'Evaluation of {model_name}')
     ## Evaluate the model
     train_report, test_report, eval_fig = fn.eval_classification(model, X_train, y_train, X_test, y_test,
                                                              labels=labels)
