@@ -29,8 +29,7 @@ X_test, y_test = load_Xy_data(fpath = FPATHS['data']['ml']['test'])
 def load_model_ml(fpath):
     return joblib.load(fpath)
 
-# # Load linreg model
-# linreg = load_model_ml(fpath = FPATHS['models']['linear_regression'])
+
 
 # # Load rf model
 # rf = load_model_ml(fpath = FPATHS['models']['random_forest'])
@@ -65,8 +64,10 @@ st.title('Model Evaluation and Predictions')
 st.subheader('Evaluate the model or make a prediction to the left.')
 
 # Select model with selectbox
-model_name = st.sidebar.selectbox('Select Model', ['logistic_regression','random_forest'], index=0)
-model = load_model_ml(FPATHS['models'][model_name])
+# model_name = st.sidebar.selectbox('Select Model', ['logistic_regression','random_forest'], index=0)
+# Try hard coding in the random_forest
+model = load_model_ml(FPATHS['models']['random_forest'])
+#model = load_model_ml(FPATHS['models'][model_name])
 
 # Evaluate model subheader and button
 st.sidebar.subheader('Evaluation')
@@ -76,7 +77,7 @@ labels = ['Approved', 'Rejected']
 
 # When button is pressed
 if st.sidebar.button('Evaluate Model'):
-    st.subheader(f'Evaluation of {model_name}')
+   #st.subheader(f'Evaluation of {model_name}')
     ## Evaluate the model
     train_report, test_report, eval_fig = fn.eval_classification(model, X_train, y_train, X_test, y_test,
                                                              labels=labels)
