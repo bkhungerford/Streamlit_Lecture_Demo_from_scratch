@@ -63,6 +63,8 @@ def explain_instance(_explainer, _model_pipe, instance_to_explain):
 st.title('Model Evaluation and Predictions')
 st.subheader('Evaluate the model or make a prediction to the left.')
 
+dir = path.Path(__file__).abspath()
+sys.path.append(dir.parent.parent)
 # Select model with selectbox
 model_name = st.sidebar.selectbox('Select Model', ['logistic_regression','random_forest'], index=0)
 
