@@ -66,7 +66,7 @@ st.subheader('Evaluate the model or make a prediction to the left.')
 
 # Select model with selectbox
 model_name = st.sidebar.selectbox('Select Model', ['logistic_regression','random_forest'], index=0)
-
+m
 model = load_model_ml(FPATHS['models'][model_name])
 
 # Evaluate model subheader and button
