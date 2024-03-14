@@ -63,6 +63,8 @@ def explain_instance(_explainer, _model_pipe, instance_to_explain):
 st.title('Model Evaluation and Predictions')
 st.subheader('Evaluate the model or make a prediction to the left.')
 
+import path
+import sys
 dir = path.Path(__file__).abspath()
 sys.path.append(dir.parent.parent)
 # Select model with selectbox
