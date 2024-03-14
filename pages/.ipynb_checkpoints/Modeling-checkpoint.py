@@ -25,7 +25,7 @@ X_test, y_test = load_Xy_data(fpath = FPATHS['data']['ml']['test'])
 
 
 # Define function for loading models with caching
-@st.cache_resource
+#@st.cache_resource
 def load_model_ml(fpath):
     return joblib.load(fpath)
 
